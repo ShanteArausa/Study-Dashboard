@@ -16,3 +16,25 @@ greetButton.addEventListener("click", () => {
     greetingText.textContent = "Please enter your name.";
   }
 });
+const calculateBtn = document.getElementById("calculateBtn");
+const studyHoursInput = document.getElementById("studyHours");
+const studyResult = document.getElementById("studyResult");
+
+calculateBtn.addEventListener("click", () => {
+  const hours = Number(studyHoursInput.value);
+
+  if (!hours && hours !== 0) {
+    studyResult.textContent = "Please enter your study hours.";
+    return;
+  }
+
+  if (hours >= 4) {
+    studyResult.textContent =
+      "🔥 Great work! You're putting in serious effort.";
+  } else if (hours >= 2) {
+    studyResult.textContent = "👍 Solid progress. Stay consistent!";
+  } else {
+    studyResult.textContent =
+      "⚠️ Every bit counts — try to study a little more tomorrow.";
+  }
+});
