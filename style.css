@@ -11,3 +11,10 @@ header h1 {
 ul li {
   margin-bottom: 5px;
 }
+section h2 {
+  color: #e27a3f; /* warm highlight for headings */
+}
+
+section ul li {
+  margin-bottom: 8px;
+}
