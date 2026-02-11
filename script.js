@@ -23,18 +23,17 @@ const studyResult = document.getElementById("studyResult");
 calculateBtn.addEventListener("click", () => {
   const hours = Number(studyHoursInput.value);
 
+  let message = "";
+
   if (!hours && hours !== 0) {
-    studyResult.textContent = "Please enter your study hours.";
-    return;
+    message = "Please enter your study hours.";
+  } else if (hours >= 4) {
+    message = "🔥 Great work! You're putting in serious effort.";
+  } else if (hours >= 2) {
+    message = "👍 Solid progress. Stay consistent!";
+  } else {
+    message = "⚠️ Every bit counts — try to study a little more tomorrow.";
   }
 
-  if (hours >= 4) {
-    studyResult.textContent =
-      "🔥 Great work! You're putting in serious effort.";
-  } else if (hours >= 2) {
-    studyResult.textContent = "👍 Solid progress. Stay consistent!";
-  } else {
-    studyResult.textContent =
-      "⚠️ Every bit counts — try to study a little more tomorrow.";
-  }
+  studyResult.textContent = message;
 });
