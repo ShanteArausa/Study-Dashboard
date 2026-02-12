@@ -1,6 +1,10 @@
 const button = document.getElementById("motivateBtn");
 const text = document.getElementById("motivationText");
 const studySessions = [];
+const sessionCountDisplay = document.getElementById("sessionCount");
+const totalHoursDisplay = document.getElementById("totalHours");
+const averageHoursDisplay = document.getElementById("averageHours");
+const sessionList = document.getElementById("sessionList");
 
 button.addEventListener("click", () => {
   text.textContent = "Keep building, one step at a time!";
@@ -58,21 +62,21 @@ function updateStudyDashboard() {
     total += studySessions[i];
   }
 
-  const average = (total / studySessions.length).toFixed(1);
+  const average = studySessions.length
+    ? (total / studySessions.length).toFixed(1)
+    : 0;
 
-  document.getElementById("sessionCount").textContent = studySessions.length;
-  document.getElementById("totalHours").textContent = total;
-  document.getElementById("averageHours").textContent = average;
-
+  sessionCountDisplay.textContent = studySessions.length;
+  totalHoursDisplay.textContent = total;
+  averageHoursDisplay.textContent = average;
   renderSessionList();
 }
 function renderSessionList() {
-  const list = document.getElementById("sessionList");
-  list.innerHTML = "";
+  sessionList.innerHTML = "";
 
-  for (let i = 0; i < studySessions.length; i++) {
+  studySessions.forEach((hours, index) => {
     const li = document.createElement("li");
-    li.textContent = `Session ${i + 1}: ${studySessions[i]} hours`;
-    list.appendChild(li);
-  }
+    li.textContent = `Session ${index + 1}: ${hours} hours`;
+    sessionList.appendChild(li);
+  });
 }
