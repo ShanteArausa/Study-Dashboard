@@ -1,32 +1,96 @@
 body {
-  font-family: Arial, sans-serif;
-  max-width: 600px;
-  margin: 40px auto;
-  padding: 0 20px;
-  line-height: 1.6;
-}
-header h1 {
-  color: #4a90e2;
-}
-ul li {
-  margin-bottom: 5px;
-}
-section h2 {
-  color: #e27a3f; /* warm highlight for headings */
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f4f9;
+  margin: 0;
+  padding: 20px;
+  color: #333;
 }
 
-section ul li {
-  margin-bottom: 8px;
+h1,
+h2 {
+  text-align: center;
+  color: #222;
 }
+
+section {
+  background-color: white;
+  padding: 15px 20px;
+  margin: 15px auto;
+  max-width: 400px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+input[type="text"],
+input[type="number"] {
+  padding: 6px 10px;
+  margin-right: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
 button {
-  background-color: #4a90e2;
+  background-color: #4caf50;
   color: white;
-  padding: 10px 15px;
   border: none;
+  padding: 8px 14px;
+  margin: 5px 0;
+  border-radius: 5px;
   cursor: pointer;
-  margin-top: 10px;
+  transition: background-color 0.2s ease;
 }
 
 button:hover {
-  background-color: #357abd;
+  background-color: #45a049;
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+li {
+  padding: 6px 0;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+li button {
+  background-color: #e74c3c;
+  margin: 0;
+  padding: 4px 8px;
+  font-size: 0.9em;
+}
+
+li button:hover {
+  background-color: #c0392b;
+}
+
+#studyResult,
+#motivationText,
+#greetingText {
+  margin-top: 8px;
+  font-weight: 500;
+}
+
+#averageProgressContainer {
+  width: 100%;
+  background-color: #eee;
+  border-radius: 8px;
+  margin-top: 5px;
+  height: 12px;
+}
+
+#averageProgressBar {
+  height: 100%;
+  width: 0;
+  background-color: #4caf50;
+  border-radius: 8px;
+  transition: width 0.3s ease;
+}
+
+#averageHours {
+  font-weight: 600;
 }

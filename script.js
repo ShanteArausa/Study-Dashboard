@@ -1,3 +1,4 @@
+let tasks = [];
 const button = document.getElementById("motivateBtn");
 const text = document.getElementById("motivationText");
 const studySessions = [];
@@ -52,19 +53,30 @@ addSessionBtn.addEventListener("click", () => {
     return;
   }
 
-  studySessions.push(hours);
+  const session = {
+    hours: hours,
+    timestamp: new Date().toLocaleString(),
+  };
+
+  studySessions.push(session);
+  saveStudySessions();
   updateStudyDashboard();
 });
 function updateStudyDashboard() {
   let total = 0;
 
   for (let i = 0; i < studySessions.length; i++) {
-    total += studySessions[i];
+    total += studySessions[i].hours;
   }
 
   const average = studySessions.length
     ? (total / studySessions.length).toFixed(1)
     : 0;
+
+  const maxHours = 6; 
+  const progressPercent = Math.min((average / maxHours) * 100, 100);
+  const progressBar = document.getElementById("averageProgressBar");
+  progressBar.style.width = progressPercent + "%";
 
   sessionCountDisplay.textContent = studySessions.length;
   totalHoursDisplay.textContent = total;
@@ -76,7 +88,37 @@ function renderSessionList() {
 
   studySessions.forEach((hours, index) => {
     const li = document.createElement("li");
-    li.textContent = `Session ${index + 1}: ${hours} hours`;
+    li.textContent = `Session ${index + 1}: ${studySessions[index].hours} hours - ${studySessions[index].timestamp} `;
+
+    const deleteBtn = document.createElement("button");
+    deleteBtn.textContent = "❌";
+    deleteBtn.style.marginLeft = "10px";
+
+    deleteBtn.addEventListener("click", () => {
+      deleteSession(index);
+    });
+
+    li.appendChild(deleteBtn);
     sessionList.appendChild(li);
   });
+}
+
+function saveStudySessions() {
+  localStorage.setItem("studySessions", JSON.stringify(studySessions));
+}
+function loadStudySessions() {
+  const storedSessions = localStorage.getItem("studySessions");
+
+  if (storedSessions) {
+    studySessions.push(...JSON.parse(storedSessions));
+    updateStudyDashboard();
+  }
+}
+
+loadStudySessions();
+
+function deleteSession(index) {
+  studySessions.splice(index, 1);
+  saveStudySessions();
+  updateStudyDashboard();
 }
