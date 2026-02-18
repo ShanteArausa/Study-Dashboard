@@ -3,70 +3,51 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Shante Arausa – Developer Journey</title>
+    <title>Study & Task Dashboard</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <header>
-      <h1>Hi, I’m Shante</h1>
-      <p>Building software skills to become a stronger cloud developer.</p>
-    </header>
     <section>
-      <h2>Currently Learning:</h2>
-      <ul>
-        <li>HTML & CSS</li>
-        <li>JavaScript fundamentals</li>
-        <li>Cloud development basics</li>
-      </ul>
-    </section>
-    <section>
-      <h2>Today I Learned</h2>
-      <ul>
-        <li>How to create folders and files in the terminal</li>
-        <li>How to use VS Code Live Server for previews</li>
-        <li>How to stage and commit changes with Git</li>
-      </ul>
-    </section>
-    <section>
-      <h2>Motivation</h2>
-      <button id="motivateBtn">Show Motivation</button>
+      <button id="motivateBtn">Motivate Me</button>
       <p id="motivationText"></p>
     </section>
     <section>
-      <h2>Personal Greeting</h2>
       <input type="text" id="nameInput" placeholder="Enter your name" />
       <button id="greetBtn">Greet Me</button>
       <p id="greetingText"></p>
     </section>
     <section>
-      <h2>Study Time Tracker</h2>
-
-      <input
-        type="number"
-        id="studyHours"
-        placeholder="Hours studied today"
-        min="0"
-      />
-
-      <button id="calculateBtn">Check Progress</button>
-
+      <h2>Study Tracker</h2>
+      <input type="number" id="studyHours" placeholder="Hours studied" />
+      <button id="calculateBtn">Check Effort</button>
       <p id="studyResult"></p>
-    </section>
-    <section>
-      <h2>Study History</h2>
+      <button id="addSessionBtn">Add Session</button>
 
-      <button id="addSessionBtn">Add Study Session</button>
-
-      <p>Total Sessions: <span id="sessionCount">0</span></p>
-      <p>Total Hours: <span id="totalHours">0</span></p>
-      <p>Average Hours per Session: <span id="averageHours">0</span></p>
-      <div id="averageProgressContainer">
-        <div id="averageProgressBar"></div>
+      <div class="dashboard">
+        <p>Total Sessions: <span id="sessionCount">0</span></p>
+        <p>Total Hours: <span id="totalHours">0</span></p>
+        <p>Average Hours: <span id="averageHours">0</span></p>
+        <div class="progress-container">
+          <div id="averageProgressBar" class="progress-bar"></div>
+        </div>
       </div>
 
       <ul id="sessionList"></ul>
     </section>
+    <section>
+      <h2>Tasks</h2>
+      <input type="text" id="taskInput" placeholder="New Task" />
+      <button id="addTaskBtn">Add Task</button>
 
-    <script src="script.js"></script>
+      <div class="filter-buttons">
+        <button data-filter="all" class="active-filter">All</button>
+        <button data-filter="active">Active</button>
+        <button data-filter="completed">Completed</button>
+      </div>
+
+      <ul id="taskList"></ul>
+    </section>
+
+    <script type="module" src="js/main.js"></script>
   </body>
 </html>

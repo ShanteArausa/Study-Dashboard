@@ -1,96 +1,134 @@
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f4f4f9;
+  background-color: #f4f6f8;
+  color: #333;
   margin: 0;
   padding: 20px;
-  color: #333;
 }
 
-h1,
 h2 {
-  text-align: center;
-  color: #222;
+  margin-bottom: 10px;
+  color: #1a73e8;
 }
 
 section {
-  background-color: white;
-  padding: 15px 20px;
-  margin: 15px auto;
-  max-width: 400px;
-  border-radius: 8px;
+  background: #fff;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 12px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+button {
+  padding: 8px 16px;
+  margin: 5px 0;
+  border: none;
+  border-radius: 6px;
+  background-color: #1a73e8;
+  color: white;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+button:hover {
+  background-color: #1664c1;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
 }
 
 input[type="text"],
 input[type="number"] {
-  padding: 6px 10px;
-  margin-right: 5px;
+  padding: 8px 12px;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 6px;
+  width: calc(100% - 26px);
+  margin-right: 8px;
+  margin-bottom: 8px;
+  box-sizing: border-box;
 }
 
-button {
-  background-color: #4caf50;
-  color: white;
-  border: none;
-  padding: 8px 14px;
-  margin: 5px 0;
-  border-radius: 5px;
+#taskList li {
+  list-style: none;
+  padding: 10px 12px;
+  margin-bottom: 6px;
+  background-color: #eef3fb;
+  border-radius: 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: background 0.2s ease;
 }
 
-button:hover {
-  background-color: #45a049;
+#taskList li.completed {
+  text-decoration: line-through;
+  color: #888;
+  background-color: #d1e2f0;
 }
 
-ul {
-  list-style-type: none;
-  padding-left: 0;
+#taskList li button {
+  background-color: #e53935;
+  font-weight: bold;
 }
 
-li {
-  padding: 6px 0;
-  border-bottom: 1px solid #eee;
+#taskList li button:hover {
+  background-color: #c62828;
+}
+
+.filter-buttons {
+  margin: 10px 0;
+}
+
+.filter-buttons button {
+  background-color: #e0e0e0;
+  color: #333;
+  margin-right: 5px;
+}
+
+.filter-buttons button.active-filter {
+  background-color: #1a73e8;
+  color: white;
+}
+
+#sessionList li {
+  list-style: none;
+  padding: 10px 12px;
+  margin-bottom: 6px;
+  background-color: #f0f7ed;
+  border-radius: 6px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-li button {
-  background-color: #e74c3c;
-  margin: 0;
-  padding: 4px 8px;
-  font-size: 0.9em;
+#sessionList li button {
+  background-color: #e53935;
 }
 
-li button:hover {
-  background-color: #c0392b;
+#sessionList li button:hover {
+  background-color: #c62828;
 }
 
-#studyResult,
-#motivationText,
-#greetingText {
-  margin-top: 8px;
-  font-weight: 500;
+.dashboard p {
+  margin: 4px 0;
 }
 
-#averageProgressContainer {
+.progress-container {
+  background-color: #e0e0e0;
+  border-radius: 6px;
+  height: 18px;
   width: 100%;
-  background-color: #eee;
-  border-radius: 8px;
-  margin-top: 5px;
-  height: 12px;
+  margin: 8px 0 12px 0;
+  overflow: hidden;
 }
 
 #averageProgressBar {
   height: 100%;
-  width: 0;
-  background-color: #4caf50;
-  border-radius: 8px;
+  width: 0%;
+  background-color: #1a73e8;
+  border-radius: 6px;
   transition: width 0.3s ease;
-}
-
-#averageHours {
-  font-weight: 600;
 }
