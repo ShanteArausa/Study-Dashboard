@@ -27,6 +27,14 @@ export function toggleTaskCompletion(task) {
 export function renderTasks() {
   dom.taskList.innerHTML = "";
 
+  if (state.tasks.length === 0) {
+    const empty = document.createElement("li");
+    empty.textContent = "No tasks yet. Add one to get started.";
+    empty.classList.add("empty-state");
+    dom.taskList.appendChild(empty);
+    return;
+  }
+
   let filteredTasks = state.tasks;
   if (state.currentFilter === "active")
     filteredTasks = state.tasks.filter((t) => !t.completed);
@@ -51,3 +59,7 @@ export function renderTasks() {
     dom.taskList.appendChild(li);
   });
 }
+
+dom.taskInput.addEventListener("input", () => {
+  dom.addTaskBtn.disabled = dom.taskInput.value.trim() === "";
+});

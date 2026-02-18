@@ -39,6 +39,21 @@ button:disabled {
   cursor: not-allowed;
 }
 
+button {
+  cursor: pointer;
+  transition:
+    transform 0.1s ease,
+    opacity 0.1s ease;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+button:active {
+  transform: scale(0.97);
+}
+
 input[type="text"],
 input[type="number"] {
   padding: 8px 12px;
@@ -76,6 +91,14 @@ input[type="number"] {
 
 #taskList li button:hover {
   background-color: #c62828;
+}
+
+.empty-state {
+  list-style: none;
+  text-align: center;
+  color: #777;
+  font-style: italic;
+  padding: 12px;
 }
 
 .filter-buttons {
